@@ -1,3 +1,5 @@
+<SearchEmployeeComponentSelector (searchEvent)="setSearchInput($event)"></SearchEmployeeComponentSelector>
+
 <p appApplyColor>employee-details works!</p>
 
 <table border="1" appApplyColor>
@@ -13,13 +15,14 @@
         <th>LOCATION</th>
     </tr>
     <tr *ngFor="let emp of empList; trackBy : trackByEid">
-        <td>{{emp.eid}}</td>
-        <td>{{emp.ename | uppercase | namePrefix : emp.gender}}</td>
-        <td *ngIf="salFlag" appApplyColor>{{emp.esal | salaryType : emp.location}}</td>
-        <td>{{emp.edob |date |uppercase}}</td>
-        <td>{{emp.gender}}</td>
-        <td>{{emp.location}}</td>
-        
+        @if (searchInput == emp.eid) {
+            <td>{{emp.eid}}</td>
+            <td>{{emp.ename | uppercase | namePrefix : emp.gender}}</td>
+            <td *ngIf="salFlag" appApplyColor>{{emp.esal | salaryType : emp.location}}</td>
+            <td>{{emp.edob |date |uppercase}}</td>
+            <td>{{emp.gender}}</td>
+            <td>{{emp.location}}</td>
+        }      
     </tr>
     
 </table>

@@ -5,17 +5,22 @@ import { ApplyColorDirective } from '../apply-color.directive';
 import { EmployeeDataService } from '../employee-data.service';
 import { NamePrefixPipe } from '../name-prefix.pipe';
 import { SalaryTypePipe } from '../salary-type.pipe';
+import { SearchEmployeeComponent } from '../search-employee/search-employee.component';
 
 @Component({
   selector: 'EmployeeDetailsComponentSelector',
   standalone: true,
-  imports: [CommonModule, ApplyColorDirective, NamePrefixPipe, SalaryTypePipe],
+  imports: [CommonModule, ApplyColorDirective, NamePrefixPipe, SalaryTypePipe, SearchEmployeeComponent],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.css'
 })
 export class EmployeeDetailsComponent {
 
     constructor(public employeeDataService : EmployeeDataService){}
+        searchInput : number = 0;
+        setSearchInput(input : number){
+          this.searchInput = input;
+        }
         eid : number = 101;
         ename : string = "Ram";
         esal : number = 35000;
