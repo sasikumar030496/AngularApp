@@ -1,0 +1,36 @@
+<p appApplyColor>employee-details works!</p>
+
+<table border="1" appApplyColor>
+    <tr>
+        <th colspan="6">Employee Details</th>
+    </tr>
+    <tr [ngClass]="{'blueColor':true, 'redColor':false}">
+        <th>E_ID</th>
+        <th>E_NAME</th>
+        <th *ngIf="salFlag">E_SAL</th>
+        <th>E_DOB</th>
+        <th>GENDER</th>
+        <th>LOCATION</th>
+    </tr>
+    <tr *ngFor="let emp of empList; trackBy : trackByEid">
+        <td>{{emp.eid}}</td>
+        <td>{{emp.ename | uppercase | namePrefix : emp.gender}}</td>
+        <td *ngIf="salFlag" appApplyColor>{{emp.esal | salaryType : emp.location}}</td>
+        <td>{{emp.edob |date |uppercase}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.location}}</td>
+        
+    </tr>
+    
+</table>
+<br>
+@if (!salFlag) {
+    <p [ngStyle]="{'color':textColor}">To display salary click on the below button</p>
+    <button (click)="showSal()" >Show Salary</button>
+}
+@else {
+
+}
+<button (click)="getRecords()" >Refresh Records</button>
+
+

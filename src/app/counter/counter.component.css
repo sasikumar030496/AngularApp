@@ -1,0 +1,22 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    background-color: grey;
+    width: 300px;
+    text-align: center;
+}
+h3{
+    margin-top: 0;
+    background-color: black;
+    color: white;
+}
+button{
+    background-color: lightgray;
+    font-weight: bold;
+    margin-right: 2px;
+    cursor: pointer;
+}
